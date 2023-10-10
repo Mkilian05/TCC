@@ -1,0 +1,185 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+//Começo CSS estrelas de avaliação
+.estrelas input[type=radio] {
+    display: none;
+}
+
+.estrelas label i.fa:before {
+    content: '\f005';
+    color: #FC0;
+}
+
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: #CCC;
+}
+
+.fa-star{
+    color: #FC0;
+}
+
+//Fim CSS estrelas de avaliação
+
+
+//Começo CSS icons footer
+.social-icons {
+    font-size: 24px;
+    /* Tamanho dos ícones */
+}
+
+.social-icon {
+    margin: 0 10px;
+    /* Espaçamento entre os ícones */
+    color: #fff;
+    /* Cor dos ícones */
+    transition: color 0.3s ease-in-out;
+    /* Efeito de transição de cor */
+}
+
+.social-icon:hover {
+    color: #f39c12;
+    /* Cor ao passar o mouse */
+}
+//Fim CSS icons footer
+
+
+//Começo estilos card-home
+.card-hover {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+}
+
+.btn-custom {
+    background-color: #1A4459;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0F7DB4;
+    transform: translateY(100%);
+    z-index: -1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+.btn-custom:hover::before {
+    transform: translateY(0);
+}
+//Fim estilos card-home
+
+//Começo estilo footer button
+
+.btn-custom-2 {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFB83C;
+    transform: translateY(100%);
+    z-index: -1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom-2:hover {
+    transform: scale(1.05);
+}
+
+.btn-custom-2:hover::before {
+    transform: translateY(0);
+}
+
+
+// Comentários style
+
+.edit-link {
+    color: #6c757d;
+    /* Defina a cor inicial do ícone de edição */
+    transition: color 0.3s;
+    /* Adicione uma transição suave para a mudança de cor */
+}
+
+.edit-link:hover {
+    color: #28a745;
+    /* Defina a cor ao passar o mouse */
+}
+
+.delete-link {
+    color: #6c757d;
+    /* Defina a cor inicial do ícone de exclusão */
+    transition: color 0.3s;
+    /* Adicione uma transição suave para a mudança de cor */
+}
+
+.delete-link:hover {
+    color: #dc3545;
+    /* Defina a cor ao passar o mouse */
+}
+
+
+
+
+
+.estrelas-edicao input[type=radio] {
+    display: none;
+}
+
+.estrelas-edicao label i.fa:before {
+    content: '\f005';
+    color: #FC0;
+}
+
+.estrelas-edicao input[type=radio]:checked~label i.fa:before {
+    color: #CCC;
+}
+
+.estrelas-edicao {
+    color: #FC0;
+}
