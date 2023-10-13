@@ -7,7 +7,23 @@ function Comentario(obj, refs){
     self.comentario   = ko.observable(obj.comentario||null);
     self.voto         = ko.observable(obj.voto||null);
     self.user         = ko.observable(obj.user||null);
+    self.userId         = ko.observable(obj.user||null);
     self.created_at   = ko.observable(base._formatDate(obj.created_at, 'DD/MM/YYYY HH:mm')||null);
+    self.editando     = ko.observable(false);
+
+    self.enableBtnEditar = ko.computed(function(){
+        return self.userId() === base.Auth.id;
+    });
+
+    self.editar = function(){
+        self.editando(true);
+    }
+
+    self.cancelar = function(){
+        //reset original
+        self.editando(false);
+    }
+
 
     self.remove       = function(){
 

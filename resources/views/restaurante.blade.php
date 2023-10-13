@@ -111,14 +111,57 @@
                         </div>  --}}
                         <div class="card comentario-card my-3" id="knockoutContainer">
                             <!-- ko foreach: lista -->
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="card-subtitle mt-2 mb-2 text"><strong data-bind="text: 'Usuário: '+user()"></strong></h6>
-                                    <h6 class="text-muted mt-2 "><span data-bind="text: 'Data: '+created_at()"></span></h6>
-                                </div>
-                                <div class="avaliacao">
-                                    <p><strong>Avaliação:</strong><img class="img-vote" data-bind="attr:{ src: '../images/'+voto()+'-vote-star.png' }"/></p>
-                                </div>
-                                <p class="card-text"><strong>Comentário:</strong><br><span data-bind="text: comentario"></span></p>
+                                <!-- ko if: !editando() -->
+                                    <div class="d-flex justify-content-end mb-2" data-bind="viseble: enableBtnEditar()">
+                                        <a class="mr-2 edit-link edit-comment" style="margin-right: 1em !important;" data-bind="click: editar">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="{{ route('excluir_comentario', 1) }}" class="delete-link">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="card-subtitle mt-2 mb-2 text"><strong data-bind="text: 'Usuário: '+user()"></strong></h6>
+                                        <h6 class="text-muted mt-2 "><span data-bind="text: 'Data: '+created_at()"></span></h6>
+                                    </div>
+                                    <div class="avaliacao">
+                                        <p><strong>Avaliação:</strong><img class="img-vote" data-bind="attr:{ src: '../images/'+voto()+'-vote-star.png' }"/></p>
+                                    </div>
+                                    <p class="card-text" data-bind="visible: !editando"><strong>Comentário:</strong><br><span data-bind="text: comentario"></span></p>
+
+                                    </p>
+                                <!-- /ko -->
+                                <!-- ko if: editando() -->
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-5">Editar sua Avaliação:</h5>
+                                            <div class="estrelas">
+                                                <label for="cm_star-1"><i class="fa"></i></label>
+                                                <input type="radio" id="cm_star-1" name="voto" value="1" data-bind="checked: voto, checkedValue: 1"/>
+                                                <label for="cm_star-2"><i class="fa"></i></label>
+                                                <input type="radio" id="cm_star-2" name="voto" value="2" data-bind="checked: voto, checkedValue: 2"/>
+                                                <label for="cm_star-3"><i class="fa"></i></label>
+                                                <input type="radio" id="cm_star-3" name="voto" value="3" data-bind="checked: voto, checkedValue: 3"/>
+                                                <label for="cm_star-4"><i class="fa"></i></label>
+                                                <input type="radio" id="cm_star-4" name="voto" value="4" data-bind="checked: voto, checkedValue: 4"/>
+                                                <label for="cm_star-5"><i class="fa"></i></label>
+                                                <input type="radio" id="cm_star-5" name="voto" value="5" data-bind="checked: voto, checkedValue: 5"/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <textarea class="form-control" id="userInput" name="comentario" rows="4"
+                                                    placeholder="Digite aqui o seu comentário..."></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-icon">
+                                                Enviar <i class="fas fa-paper-plane ms-1"></i>
+                                            </button>
+                                            <button type="submit" class="btn btn-danger btn-icon" data-bind="click: cancelar">
+                                                Cancelar <i class="fas fa-paper-plane ms-1"></i>
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                <!-- /ko -->
                             <!-- /ko -->
                         </div>
                         {{--  @endforeach  --}}

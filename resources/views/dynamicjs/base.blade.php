@@ -2,7 +2,7 @@ function base(){[native/code]}
 
 base.loading = {show:ko.observable(false)};
 
-base.Auth = {!! !empty(session()->has('user') ) ? json_encode(session()->get('user')) : json_encode(new stdClass) !!};
+base.Auth = {!! Auth::check() ? Auth::user() : json_encode(new stdClass) !!};
 
 base._urlBase = "@php echo config('app.url'); @endphp"
 
