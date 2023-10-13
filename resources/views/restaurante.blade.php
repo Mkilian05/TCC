@@ -76,7 +76,7 @@
                     </div>
                     @endguest
                     <div class="col-sm-12">
-                        @foreach ($model->comentarios as $coment)
+                        {{--@foreach ($model->comentarios as $coment)
                         <div class="card comentario-card my-3">
                             <div class="card-body">
                                 @if(Auth::user() && $coment->user == Auth::user()->id )
@@ -108,8 +108,20 @@
                                     {{ $coment->comentario }}
                                 </p>
                             </div>
+                        </div>  --}}
+                        <div class="card comentario-card my-3" id="knockoutContainer">
+                            <!-- ko foreach: lista -->
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="card-subtitle mt-2 mb-2 text"><strong data-bind="text: 'Usuário: '+user()"></strong></h6>
+                                    <h6 class="text-muted mt-2 "><span data-bind="text: 'Data: '+created_at()"></span></h6>
+                                </div>
+                                <div class="avaliacao">
+                                    <p><strong>Avaliação:</strong><img class="img-vote" data-bind="attr:{ src: '../images/'+voto()+'-vote-star.png' }"/></p>
+                                </div>
+                                <p class="card-text"><strong>Comentário:</strong><br><span data-bind="text: comentario"></span></p>
+                            <!-- /ko -->
                         </div>
-                        @endforeach
+                        {{--  @endforeach  --}}
                     </div>
 
                 </div>
@@ -182,16 +194,19 @@
     </div>
 
 </div>
+<script>
+    var model = @json($model);
+</script>
 @endsection
 
 @section('pageScripts')
-    <script>
+    <script  type="text/javascript">
         var url_consulta = "{{ route('busca-comentario')}}";
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {{--  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>  --}}
+    {{--  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>  --}}
+    {{--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  --}}
 
 
     <script src="{{ mix('js/edit-coment.js')}}"></script>

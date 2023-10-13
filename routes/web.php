@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     AdminController,
+    DynamicjsController,
     HomeController,
     PostagensController,
     SobreController,
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Auth::routes();
+
+Route::name('dynamicjs.')->prefix('dynamicjs')->group(function () {
+    Route::get('base.js', [DynamicjsController::class, 'base'])->name('base.js');
+});
 
 Route::get('/home', [HomeController::class, 'index'])->name('home'); //Rota para visualizar a home
 
