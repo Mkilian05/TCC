@@ -36,8 +36,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home'); //Rota para
 
 Route::get('restaurante/{slug?}', [PostagensController::class, 'viewRestaurante'])->name('restaurante'); //Rota para visualizar a os posts
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentar'); //Rota que salva os comentário
-Route::get('excluir/comentario/{id}', [ComentarioController::class, 'deleteComentario'])->name('excluir_comentario');
-Route::put('/comentarios', [ComentarioController::class, 'updateComentario'])->name('update_comentario');
+Route::post('excluir/comentario/{id?}', [ComentarioController::class, 'deleteComentario'])->name('excluir_comentario');
+Route::post('/comentarios/{id?}', [ComentarioController::class, 'updateComentario'])->name('update_comentario');
 
 Route::post('/salvar_pre_cadastro', [PreCadastroController::class, 'store'])->name('salvar_pre_cadastro'); //Rota que salva os prés cadastros
 
