@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 <!-- /ko -->
-
+                                    <hr>
                             <!-- /ko -->
                         </div>
                         {{--  @endforeach  --}}
