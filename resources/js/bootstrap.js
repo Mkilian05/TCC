@@ -11,6 +11,10 @@ window.axios = require('axios');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    window.Swal = require('sweetalert2');
+    window.moment = require('moment');
+    window.ko = require('knockout');
+    window.kv = require('knockout.validation');
     require('bootstrap');
 
 } catch (e) { }

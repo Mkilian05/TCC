@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     AdminController,
+    DynamicjsController,
     HomeController,
     PostagensController,
     SobreController,
@@ -26,13 +27,17 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Auth::routes();
 
+Route::name('dynamicjs.')->prefix('dynamicjs')->group(function () {
+    Route::get('base.js', [DynamicjsController::class, 'base'])->name('base.js');
+});
+
 Route::get('/home', [HomeController::class, 'index'])->name('home'); //Rota para visualizar a home
 
 
 Route::get('restaurante/{slug?}', [PostagensController::class, 'viewRestaurante'])->name('restaurante'); //Rota para visualizar a os posts
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentar'); //Rota que salva os comentário
-Route::get('excluir/comentario/{id}', [ComentarioController::class, 'deleteComentario'])->name('excluir_comentario');
-Route::put('/comentarios', [ComentarioController::class, 'updateComentario'])->name('update_comentario');
+Route::post('excluir/comentario/{id?}', [ComentarioController::class, 'deleteComentario'])->name('excluir_comentario');
+Route::post('/comentarios/{id?}', [ComentarioController::class, 'updateComentario'])->name('update_comentario');
 
 Route::post('/salvar_pre_cadastro', [PreCadastroController::class, 'store'])->name('salvar_pre_cadastro'); //Rota que salva os prés cadastros
 

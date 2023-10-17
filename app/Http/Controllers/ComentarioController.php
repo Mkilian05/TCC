@@ -39,12 +39,16 @@ class ComentarioController extends Controller
         try{
             Comentario::where('id', $id)->delete();
 
-            return redirect()->route('restaurante', $post->slug)->with('success', 'Comentário excluído com sucesso!');
+            return ['status' => true, 'response' => null, 'message' => 'Request executed with success'];
         }catch(Exception $e)
         {
-            Log::error('Erro ao remover post. Error =>'.$e->getMessage());
-
-            return redirect()->route('restaurante', $post->slug)->with('warning', 'Erro ao excluir comentário!');
+            Log::error([
+                'line' => $e->getLine(),
+                'code' => $e->getCode(),
+                'erro' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return ['status' => false, 'response' => null, 'message' => $e->getMessage()];
         }
     }
 
@@ -64,7 +68,7 @@ class ComentarioController extends Controller
 
     public function updateComentario(int $id, Request $request)
     {
-        dd($resquet->all());
+        if(!Auth::check() ) return ['status' => false, 'response' => null, 'message' => 'Ação não permitada.'];
 
         $comentario = Comentario::find($id);
 
@@ -73,10 +77,22 @@ class ComentarioController extends Controller
             'voto' => $request->voto,
         ];
 
-        Comentario::where('id', $id)->update($data);
+        try{
+            $comentario->comentario = $request->comentario;
+            $comentario->voto = $request->voto;
+            $comentario->save();
 
-        session()->flash('success', 'Comentário atualizado com sucesso.');
+            return ['status'=>true, 'response'=> $comentario, 'message'=>'Request executed with success' ];
 
-        return redirect()->route('painel.listar');
+        }catch(Exception $e)
+        {
+            Log::error([
+                'line' => $e->getLine(),
+                'code' => $e->getCode(),
+                'erro' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return ['status'=>false,'response'=>null,'message'=>$e->getMessage()];
+        }
     }
 }

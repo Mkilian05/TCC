@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7a775d7d8d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -146,8 +147,8 @@
 
     </div>
 
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="https://kit.fontawesome.com/7a775d7d8d.js" crossorigin="anonymous"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ Route('dynamicjs.base.js') }}"></script>
     @yield('pageScripts')
 
 
