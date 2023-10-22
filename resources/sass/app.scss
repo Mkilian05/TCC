@@ -25,6 +25,11 @@
     color: #FC0;
 }
 
+.img-vote{
+    width: 6em;
+    height: 1em;
+}
+
 //Fim CSS estrelas de avaliação
 
 
@@ -165,8 +170,6 @@
 
 
 
-
-
 .estrelas-edicao input[type=radio] {
     display: none;
 }
@@ -183,3 +186,19 @@
 .estrelas-edicao {
     color: #FC0;
 }
+
+
+.btn-custom-faq {
+    color: #000;
+    font-weight: lighter;
+    /* Branco */
+}
+
+.btn-custom-faq:hover {
+    font-size: 0.6em;
+    font-weight: bolder 400;
+    text-decoration: underline;
+    background-color: #85b0bd;
+    color: #fff;
+}
+

@@ -10836,6 +10836,11 @@ textarea.form-control-lg {
   color: #FC0;
 }
 
+.img-vote {
+  width: 6em;
+  height: 1em;
+}
+
 .social-icons {
   font-size: 24px;
   /* Tamanho dos ícones */
@@ -10976,4 +10981,18 @@ textarea.form-control-lg {
 
 .estrelas-edicao {
   color: #FC0;
+}
+
+.btn-custom-faq {
+  color: #000;
+  font-weight: lighter;
+  /* Branco */
+}
+
+.btn-custom-faq:hover {
+  font-size: 0.6em;
+  font-weight: bolder 400;
+  text-decoration: underline;
+  background-color: #85b0bd;
+  color: #fff;
 }

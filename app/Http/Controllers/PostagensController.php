@@ -57,4 +57,8 @@ class PostagensController extends Controller
         return redirect()->route('painel.create')->with('success', 'Postagem cadastrada com sucesso!');
     }
 
+    public function viewFAQ()
+    {
+        return view('FAQ');
+    }
 }

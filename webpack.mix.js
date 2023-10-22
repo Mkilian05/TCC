@@ -12,11 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .extract([
-        'jquery'
-    ])
     .sass('resources/sass/app.scss', 'public/css')
-    .copy('resources/js/edit-coment.js', 'public/js');
+    .copy('resources/js/edit-coment.js', 'public/js')
+    .copy('resources/images', 'public/images');
 
 
 if (mix.inProduction()) {

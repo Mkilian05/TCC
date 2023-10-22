@@ -1,7 +1,18 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/edit-coment.js": "/js/edit-coment.js"
+    "/js/edit-coment.js": "/js/edit-coment.js",
+    "/images/quesadillas_de_la_abuela.jpg": "/images/quesadillas_de_la_abuela.jpg",
+    "/images/lanchonete_terra_carente.jpg": "/images/lanchonete_terra_carente.jpg",
+    "/images/frosty_delights.jpg": "/images/frosty_delights.jpg",
+    "/images/da_vincis_pizza_spot.jpg": "/images/da_vincis_pizza_spot.jpg",
+    "/images/Logo-TCC.png": "/images/Logo-TCC.png",
+    "/images/Banner.png": "/images/Banner.png",
+    "/images/5-vote-star.png": "/images/5-vote-star.png",
+    "/images/4-vote-star.png": "/images/4-vote-star.png",
+    "/images/3-vote-star.png": "/images/3-vote-star.png",
+    "/images/2-vote-star.png": "/images/2-vote-star.png",
+    "/images/1-vote-star.png": "/images/1-vote-star.png",
+    "/images/sushi_samba.jpg": "/images/sushi_samba.jpg",
+    "/images/restaurante_bom_almoco.jpg": "/images/restaurante_bom_almoco.jpg"
 }
