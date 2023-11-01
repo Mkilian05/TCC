@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{{ asset('images/Logo-TCC.png')}}" alt="Logo" width="30" height="24"
                         class="d-inline-block align-text-top me-2">
                     CritiqueCentral
