@@ -15,12 +15,12 @@
                         @method('PUT')
                         <div class="mb-3">
                             <label class="form-label">Nome:</label>
-                            <input type="text" class="form-control" name="name" value="{{ $users->name }}">
+                            <input type="text" class="form-control" name="name" value="{{ $users->name }}" readonly>
                             <input type="hidden" class="form-control" name="id" value="{{ $users->id }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">E-mail:</label>
-                            <input type="text" class="form-control" name="email" value="{{ $users->email }}">
+                            <input type="text" class="form-control" name="email" value="{{ $users->email }}" readonly>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
