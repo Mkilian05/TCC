@@ -3,19 +3,19 @@
 @section('content')
 {{-- {{dd()}} --}}
 <title>{{$model->titulo}}</title>
-<div class="container-fluid mt-4 border">
+<div class="container-fluid mt-4">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8" style="word-wrap: break-word;">
             <h1 class="mt-3 text-center">{{$model->titulo}}</h1>
             <hr class="solid">
-            <p class="mt-3 fs-2">
+            <p class="mt-2 fs-6 text-star">
                 {!! $model->descricao_1 !!}
             </p>
             @php
             $tmp = "images/{$model->filename}";
             @endphp
             <img src="{{ asset($tmp) }}" alt="Imagem da Notícia" class="img-fluid rounded mt-1 mx-auto">
-            <p class="mt-3 fs-2">
+            <p class="mt-3 fs-6">
                 {!! $model->descricao_2 !!}
             </p>
             <div class="container mt-3 mb-3">
@@ -40,7 +40,7 @@
                     </div>
                     @else
                     <div class="col-md-12">
-                        <form class="mt-3" action="{{ route('comentar') }}" method="POST">
+                        <form class="mt-3 pb-3" action="{{ route('comentar') }}" method="POST">
                             @csrf
                             <!-- Adicione o token CSRF para proteção -->
                             <input type="hidden" name="post" value="{{ $model->id}}">
@@ -75,8 +75,9 @@
                         </form>
                     </div>
                     @endguest
+                    <h5 class="text-center fs-5 pb-2">Avaliações:</h5>
                     <div class="col-sm-12">
-                        <div class="card comentario-card my-3" id="knockoutContainer">
+                        <div class="card comentario-card px-3 pt-2" id="knockoutContainer">
                             <!-- ko foreach: lista -->
                                 <!-- ko if: !editando() -->
                                     <div data-bind="visible: enableBtnEditar()">
@@ -150,12 +151,9 @@
                                                 Cancelar
                                                 <i class="fas fa-paper-plane ms-1"></i>
                                             </button>
-
-
                                         </div>
                                     </div>
                                 <!-- /ko -->
-                                    <hr>
                             <!-- /ko -->
                         </div>
                     </div>

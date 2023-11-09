@@ -14,7 +14,7 @@
     <div class="col-md-4 pb-4 text-center">
         <div class="card h-100 card-hover">
             @php
-            $tmp = "images/{$post->filename}";
+            $tmp = "images/{$post->img_card}";
             @endphp
             <img src="{{ asset( $tmp ) }}" class="card-img-top" alt="{{ $post->titulo }}" style="max-height: 250px !important">
             <div class="card-body shadow">
